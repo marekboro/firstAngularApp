@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+// import {ProductService} from './product.service'
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  // templateUrl: './app.component.html',
+  template: `<h1>{{title}} --- - - --- - ->  {{newData}}</h1> <products> </products> `,
+  // providers:[ProductService]
+
 })
 export class AppComponent {
-  title = 'FirstAngularAppTEST dupa';
+  title:string = '1st AngularApp';
+  newData = '2nd variable passed in';
 }
