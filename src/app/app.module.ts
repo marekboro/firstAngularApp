@@ -9,12 +9,14 @@ import { ProductService } from './product.service'
 import { StarComponent } from './star.component'
 import { StarfillComponent } from './starfill.component'
 import { RatingComponent } from './rating.component'
+import { TruncatePipe } from './truncate.pipe'
+import { JumbotronComponent } from './jumbotron.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,ProductsComponent,StarComponent,StarfillComponent,RatingComponent, ProductComponent
+    AppComponent,ProductsComponent,StarComponent,StarfillComponent,RatingComponent, ProductComponent, TruncatePipe, JumbotronComponent
   ],
   imports: [
     BrowserModule,

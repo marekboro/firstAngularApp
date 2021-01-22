@@ -1,5 +1,9 @@
 import {Component, Input} from '@angular/core'
 
+
+// Had to move the SWITCH for the rating to decide the text version of the rating into this component as the product was not getting the updated rating valus as rating was being changed
+//
+//
 @Component({
     selector: 'rating',
     template:   `<ng-container *ngIf='rating<1; else elseBlock'><star (click)="onClick(1)" ></star>
@@ -22,12 +26,23 @@ import {Component, Input} from '@angular/core'
                 </ng-container>
                 <ng-template #elseBlock5><starfill (click)="onClick(5)" ></starfill></ng-template>
                 {{ numOfReviews }}
+
+                <div [ngSwitch]="rating">
+                    <div *ngSwitchCase="1"> Poor </div>
+                    <div *ngSwitchCase="2"> Fair </div>
+                    <div *ngSwitchCase="3"> Good </div>
+                    <div *ngSwitchCase="4"> Very Good </div>
+                    <div *ngSwitchCase="5"> Excellent </div>
+                    <div *ngSwitchDefault> Not Rated </div>
+                </div>
+               
                 `,
     styles: ['star {color: orange;}','starfill {color:orange}']
 })
 
 export class RatingComponent{
-    @Input('rating-value') rating = 0;
+    @Input() rating = 0;
+    // @Input('rating-vaule') rating = 0;
     @Input() numOfReviews = 0;
     onClick(ratingValue){
         if(this.rating===ratingValue){
@@ -36,6 +51,10 @@ export class RatingComponent{
         else {
             this.rating = ratingValue;
         }
+        this.numOfReviews +=1;
+
         
     }
 }
+
+
