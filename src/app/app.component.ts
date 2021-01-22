@@ -14,6 +14,7 @@ import { Component } from '@angular/core';
             <button (click)="onClickMe($event)" class="btn btn-primary"> Toggle on/off btn</button>
             <button class="btn btn-primary" [class.disabled]=!isValid> ON/OFF </button>
             <rating [rating]="4" > </rating>
+            <br>
             <bs-jumbotron> 
               <div class = "heading"> Hello World AGAIN </div>
               <div class = "body"> Body body body body </div>
